@@ -45,7 +45,7 @@ func checkAndUpdateCredentialName(credential *Credential) {
 func readCredentialStore() (CredentialStore, error) {
 	configInfo, err := ioutil.ReadFile(configFile)
 	if err != nil {
-		return CredentialStore{}, err
+		panic(fmt.Sprintf("failed to read config file: %s", err))
 	}
 
 	var credentialStore CredentialStore
